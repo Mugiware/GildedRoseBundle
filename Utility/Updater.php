@@ -4,9 +4,9 @@ namespace Mugiware\GildedRoseBundle\Utility;
 
 class Updater
 {
-    public static function updateQuality($items)
+    public static function updateQuality(&$items)
     {
-        foreach ($items as $item) {
+        foreach ($items as &$item) {
             if ($item->getName() != 'Aged Brie' && $item->getName() != 'Backstage passes to a TAFKAL80ETC concert') {
                 if ($item->getQuality() > 0) {
                     if ($item->getName() != 'Sulfuras, Hand of Ragnaros') {
