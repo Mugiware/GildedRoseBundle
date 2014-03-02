@@ -1,0 +1,21 @@
+{
+    "name": "mugiware/gilded-rose-bundle",
+    "type": "symfony-bundle",
+    "description": "Gilded Rose Kata Bundle for Symfony2",
+    "keywords": ["php", "kata", "gildedrose", "gilded", "rose", "tdd", "testing", "test"],
+    "homepage": "http://www.mugiware.com",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Francisco J. Cruz Romanos",
+            "email": "grisendo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Mugiware\\GildedRoseBundle": "" }
+    }
+}
