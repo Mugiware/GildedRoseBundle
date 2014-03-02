@@ -1,0 +1,3 @@
+list_items:
+    path: /
+    defaults: { _controller: MugiwareGildedRoseBundle:Item:index }

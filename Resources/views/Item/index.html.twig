@@ -1,0 +1,25 @@
+{% extends 'MugiwareGildedRoseBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1>Items</h1>
+    {% if items|length %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Sell In</th>
+                    <th>Quality</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{  item.name }}</td>
+                        <td>{{  item.sellIn }}</td>
+                        <td>{{  item.quality }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}
