@@ -2,6 +2,8 @@
 
 namespace Mugiware\GildedRoseBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity(repositoryClass="Mugiware\GildedRoseBundle\Entity\Item")
  * @ORM\Table(name="MugiwareGildedRosePlan")
