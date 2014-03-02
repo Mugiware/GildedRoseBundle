@@ -50,7 +50,7 @@ class ItemController extends Controller
             $item->setQuality($row['quality']);
             $items[] = $item;
         }
-        Updater::update($items);
+        Updater::updateQuality($items);
         return $this->render(
             'MugiwareGildedRoseBundle:Item:index.html.twig',
             array('items' => $items)
