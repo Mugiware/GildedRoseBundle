@@ -4,58 +4,10 @@ namespace Mugiware\GildedRoseBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mugiware\GildedRoseBundle\Entity\Item;
+use Mugiware\GildedRoseBundle\Utility\Updater;
 
-class ItemController extends Controller {
-
-    protected function updateQuality(array $items)
-    {
-        foreach ($items as $item) {
-            if ($item->getName() != 'Aged Brie' && $item->getName() != 'Backstage passes to a TAFKAL80ETC concert') {
-                if ($item->getQuality() > 0) {
-                    if ($item->getName() != 'Sulfuras, Hand of Ragnaros') {
-                        $item->setQuality($item->getQuality() - 1);
-                    }
-                }
-            } else {
-                if ($item->getQuality() < 50) {
-                    $item->setQuality($item->getQuality() + 1);
-                    if ($item->getName() == 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->getSellIn() < 11) {
-                            if ($items->getQuality() < 50) {
-                                $items->setQuality($items->getQuality() + 1);
-                            }
-                        }
-                        if ($item->getSellIn() < 6) {
-                            if ($items->getQuality() < 50) {
-                                $items->setQuality($items->getQuality() + 1);
-                            }
-                        }
-                    }
-                }
-            }
-            if ($item->getName() != 'Sulfuras, Hand of Ragnaros') {
-                $item->setSellIn($item->getSellIn() - 1);
-            }
-            if ($item->getSellIn() < 0) {
-                if ($item->getName() != 'Aged Brie') {
-                    if ($item->getName != 'Backstage passes to a TAFKAL80ETC concert') {
-                        if ($item->getQuality() > 0) {
-                            if ($item->getName() != 'Sulfuras, Hand of Ragnaros') {
-                                $item->setQuality($item->getQuality() - 1);
-                            }
-                        }
-                    } else {
-                        $item->setQuality($item->getQuality() - $item->getQuality());
-                    }
-                } else {
-                    if ($item->getQuality() < 50) {
-                        $item->setQuality($item->getQuality() - 1);
-                    }
-                }
-            }
-        }
-    }
-
+class ItemController extends Controller
+{
     public function indexAction()
     {
         $items = array();
@@ -98,10 +50,10 @@ class ItemController extends Controller {
             $item->setQuality($row['quality']);
             $items[] = $item;
         }
+        Updater::update($items);
         return $this->render(
             'MugiwareGildedRoseBundle:Item:index.html.twig',
             array('items' => $items)
         );
     }
-
 }
