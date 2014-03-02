@@ -46,7 +46,7 @@ class Updater
                     }
                 } else {
                     if ($item->getQuality() < 50) {
-                        $item->setQuality($item->getQuality() - 1);
+                        $item->setQuality($item->getQuality() + 1);
                     }
                 }
             }
